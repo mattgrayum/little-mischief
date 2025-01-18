@@ -85,8 +85,6 @@ nav.main-nav {
 nav.mobile-nav {
   height: calc(100vh);
   width: 100%;
-  //background-color: $rust;
-  //background-image: linear-gradient($rust, $rust, $tangelo);
   background-color: #070010;
   background-image: linear-gradient(#070010, #070010, #110032);
   position: absolute;
@@ -148,8 +146,6 @@ nav.mobile-nav {
 }
 
 .header-wr {
-  //background-color: $rust;
-  //background-image: linear-gradient($rust, $rust, $tangelo);
   background-color: #070010;
   background-image: linear-gradient(#070010, #070010, #110032);
   padding-top: 1rem;
@@ -159,14 +155,14 @@ nav.mobile-nav {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('images/group-pic-dark-min.png');
+      background-image: url('../images/group-pic-dark-min.png');
     }
 
     @media (min-width: 1025px) and (max-width: 1280px) {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('images/group-pic-dark-min.png');
+      background-image: url('../images/group-pic-dark-min.png');
     }
   }
 
@@ -175,14 +171,14 @@ nav.mobile-nav {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('images/olivers_wide_dk.jpg');
+      background-image: url('../images/olivers_wide_dk.jpg');
     }
 
     @media (min-width: 1025px) and (max-width: 1280px) {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('images/olivers_wide_dk.jpg');
+      background-image: url('../images/olivers_wide_dk.jpg');
     }
   }
 
@@ -191,14 +187,14 @@ nav.mobile-nav {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('images/club_car_dk.jpg');
+      background-image: url('../images/club_car_dk.jpg');
     }
 
     @media (min-width: 1025px) and (max-width: 1280px) {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('images/club_car_dk.jpg');
+      background-image: url('../images/club_car_dk.jpg');
     }
   }
 }
@@ -244,9 +240,6 @@ nav.mobile-nav {
   img {
     width: 100%;
     margin-top: 3rem;
-    //max-width: calc(85vw);
-    //border-radius: 50%;
-    //margin: 1rem;
 
     @media (orientation: landscape) {
       display: none;
@@ -276,7 +269,7 @@ nav.mobile-nav {
 
 .video-wr {
   background-color: #aaa;
-  background-image: url('images/olivers_bw_sq_dk.jpg');
+  background-image: url('../images/olivers_bw_sq_dk.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -290,8 +283,6 @@ nav.mobile-nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //background-color: $rust;
-  //background-image: linear-gradient($tangelo, $rust, $rust );
   background-color: #070010;
   background-image: linear-gradient(#110032, #070010, #070010 );
   padding: 2rem 1rem;
@@ -411,7 +402,6 @@ nav.mobile-nav {
 .footer-content {
   text-align: center;
   margin: auto;
-  //color: #fafafa;
   color: #fafafa;
 
   a {
@@ -438,10 +428,8 @@ button {
   font-size: 1rem;
   text-transform: uppercase;
   background-color: #ff8e00;
-  //background-color: #ff8e00;
   border: none;
   color: #110032;
-  //color: $oxford-blue;
   padding: 8px 18px;
   border-radius: 5px;
 }
