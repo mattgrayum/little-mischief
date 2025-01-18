@@ -1,0 +1,38 @@
+.about-p {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 700px) {
+    flex-direction: row;
+    margin: auto;
+    max-height: 600px;
+    overflow: hidden;
+
+    &.img-left {
+      flex-direction: row-reverse;
+    }
+  }
+
+  img {
+    width: 100%;
+
+    @media screen and (min-width: 500px) {
+      transform: scale(.75);
+    }
+  }
+
+
+  p, img {
+    flex: 1;
+
+
+    @media screen and (min-width: 700px) {
+      width: 48%;
+      margin: auto;
+      padding: 1rem;
+      transform: none;
+    }
+  }
+
+}
+
