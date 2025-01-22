@@ -37,6 +37,7 @@ body {
   }
 }
 
+
 section {
   padding: 2rem 1rem 3rem;
 
@@ -98,26 +99,26 @@ nav.mobile-nav {
   }
 
 
-    li {
-      list-style: none;
-      padding: 1.25rem 0;
-      font-size: 1.5rem;
+  li {
+    list-style: none;
+    padding: 1.25rem 0;
+    font-size: 1.5rem;
 
-      a {
-        color: #fafafa;
-      }
-    }
-
-    #close-mobile-nav {
-      position: absolute;
+    a {
       color: #fafafa;
-      top: 1rem;
-      right: 1rem;
-      font-size: 2rem;
-      font-weight: lighter;
-      background-color: transparent;
-      z-index: 99;
     }
+  }
+
+  #close-mobile-nav {
+    position: absolute;
+    color: #fafafa;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    font-weight: lighter;
+    background-color: transparent;
+    z-index: 99;
+  }
 
 
   @media screen and (min-width: 1024px) {
@@ -145,6 +146,53 @@ nav.mobile-nav {
   }
 }
 
+#hero {
+  display: none;
+
+  @media (orientation: landscape) {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    background: red;
+  }
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    background: red;
+  }
+}
+
+#hero video {
+  display: none;
+
+  @media (orientation: landscape) {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    object-fit: cover;
+  }
+}
+
+#hero .caption {
+  position: relative;
+  z-index: 20;
+  text-align: right;
+}
+
 .header-wr {
   background-color: #070010;
   background-image: linear-gradient(#070010, #070010, #110032);
@@ -152,17 +200,19 @@ nav.mobile-nav {
 
   &.home {
     @media (orientation: landscape) {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: url('../images/group-pic-dark-min.png');
+      display: none;
+      /*background-position: center;*/
+      /*background-repeat: no-repeat;*/
+      /*background-size: cover;*/
+      /*background-image: url('../images/2023-2024/group-pic-dark-min.png');*/
     }
 
     @media (min-width: 1025px) and (max-width: 1280px) {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: url('../images/group-pic-dark-min.png');
+      display: none;
+      /*background-position: center;*/
+      /*background-repeat: no-repeat;*/
+      /*background-size: cover;*/
+      /*background-image: url('../images/2023-2024/group-pic-dark-min.png');*/
     }
   }
 
