@@ -73,3 +73,13 @@ async function renderShows() {
 
     document.getElementById('show-dates').innerHTML = showsHtml.length === 0 ? noShows : showsHtml.join('');
 }
+
+// Fallback for video autoplay
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('video');
+
+    // Attempt to play video after page load
+    video.play().catch(function(error) {
+        console.log("Video autoplay failed:", error);
+    });
+});
