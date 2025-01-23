@@ -38,7 +38,7 @@ class SiteNav extends HTMLElement {
                 <ul>
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./about.html">About</a></li>
-                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="epk.html">EPK</a></li>
                 </ul>
             </nav>
             <nav class="mobile-nav hidden" id="mobile-nav">
@@ -48,7 +48,7 @@ class SiteNav extends HTMLElement {
                 <ul>
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./about.html">About</a></li>
-                    <li><a href="./booking.html">Booking</a></li>
+                    <li><a href="./epk.html">EPK</a></li>
                 </ul>
             </nav>
         `;

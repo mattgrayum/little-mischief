@@ -150,17 +150,42 @@ nav.mobile-nav {
   display: none;
 
   @media (orientation: landscape) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     width: 100%;
-    background: red;
+    background: #070010;
   }
   @media (min-width: 1025px) and (max-width: 1280px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     width: 100%;
-    background: red;
+    background: #070010;
   }
+}
+
+#hero::after {
+  width: 100%;
+  height: 100vh;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+}
+
+#hero .texture {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('../images/texture.png');
+  z-index: 15;
 }
 
 #hero video {
@@ -185,6 +210,13 @@ nav.mobile-nav {
     z-index: 5;
     object-fit: cover;
   }
+}
+
+#hero .logo-caption {
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  height: 100vh;
 }
 
 .header-wr {
