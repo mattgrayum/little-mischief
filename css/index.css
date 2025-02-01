@@ -147,6 +147,7 @@ nav.mobile-nav {
 }
 
 #home-hero, #epk-hero {
+  position: relative;
   display: none;
 
   @media (orientation: landscape) {
@@ -174,13 +175,13 @@ nav.mobile-nav {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.5);
   z-index: 10;
 }
 
-#epk-hero .texture {
+#epk-hero .texture, .video-wr .texture {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -354,11 +355,26 @@ nav.mobile-nav {
 }
 
 .video-wr {
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   background-color: #aaa;
   background-image: url('../images/olivers_bw_sq_dk.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.video-wr::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 
 .shows-wr {
@@ -397,20 +413,22 @@ nav.mobile-nav {
 }
 
 .video-content {
-  min-height: 200px;
+  position: relative;
+  height: 100%;
   text-align: center;
+  z-index: 20;
 
-  @media screen and (min-width: 720px) {
-    min-height: 400px;
-  }
+  /*@media screen and (min-width: 720px) {*/
+  /*  min-height: 400px;*/
+  /*}*/
 
-  @media screen and (min-width: 1024px) {
-    min-height: 500px;
-  }
+  /*@media screen and (min-width: 1024px) {*/
+  /*  min-height: 500px;*/
+  /*}*/
 
-  @media screen and (min-width: 1280px) {
-    min-height: 600px;
-  }
+  /*@media screen and (min-width: 1280px) {*/
+  /*  min-height: 600px;*/
+  /*}*/
 
   h2 {
     color: #fff;
