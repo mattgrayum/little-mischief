@@ -146,7 +146,7 @@ nav.mobile-nav {
   }
 }
 
-#hero {
+#home-hero, #epk-hero {
   display: none;
 
   @media (orientation: landscape) {
@@ -167,7 +167,7 @@ nav.mobile-nav {
   }
 }
 
-#hero::after {
+#epk-hero::after {
   width: 100%;
   height: 100vh;
   content: '';
@@ -178,7 +178,7 @@ nav.mobile-nav {
   z-index: 10;
 }
 
-#hero .texture {
+#epk-hero .texture {
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -188,7 +188,7 @@ nav.mobile-nav {
   z-index: 15;
 }
 
-#hero video {
+#home-hero video, #epk-hero video {
   display: none;
 
   @media (orientation: landscape) {
@@ -212,7 +212,7 @@ nav.mobile-nav {
   }
 }
 
-#hero .logo-caption {
+#epk-hero .logo-caption {
   text-align: center;
   display: flex;
   align-items: center;
@@ -222,7 +222,7 @@ nav.mobile-nav {
   height: 100vh;
 }
 
-#epk-header-icons {
+#header-icons {
   position: absolute;
   top: 1rem;
     right: 1rem;
