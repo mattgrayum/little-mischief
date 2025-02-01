@@ -214,9 +214,19 @@ nav.mobile-nav {
 
 #hero .logo-caption {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 20;
   height: 100vh;
+}
+
+#epk-header-icons {
+  position: absolute;
+  top: 1rem;
+    right: 1rem;
+    z-index: 20;
 }
 
 .header-wr {
