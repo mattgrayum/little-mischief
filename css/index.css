@@ -47,6 +47,10 @@ section {
   }
 }
 
+.content p {
+  padding: 1rem 0;
+}
+
 a {
   font-weight: bold;
   text-decoration: none;
@@ -415,7 +419,6 @@ nav.mobile-nav {
 .video-content {
   position: relative;
   height: 100%;
-  text-align: center;
   z-index: 20;
 
   /*@media screen and (min-width: 720px) {*/
@@ -440,10 +443,26 @@ nav.mobile-nav {
     height: calc(300px * 0.56333);
 
     @media screen and (min-width: 700px) {
-      width: calc(50vw);
-      height: calc(calc(50vw) * 0.56333);
+      width: calc(30vw);
+      height: calc(calc(30vw) * 0.56333);
     }
   }
+}
+
+.video-content.single-video {
+  text-align: center;
+}
+
+.video-content.single-video iframe {
+  @media screen and (min-width: 700px) {
+    width: calc(50vw);
+    height: calc(calc(50vw) * 0.56333);
+  }
+}
+
+.video {
+  padding: 1rem;
+  text-align: center;
 }
 
 .spotify-wr {
