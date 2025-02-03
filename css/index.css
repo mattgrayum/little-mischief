@@ -352,6 +352,26 @@ nav.mobile-nav {
   }
 }
 
+#bio p {
+  max-width: 50%;
+  padding: 1rem;
+}
+
+
+
+#bio a {
+  text-align: center;
+  padding: 1rem;
+}
+
+#bio img {
+  border-radius: 5px;
+  max-width: 400px;
+}
+
+#bio img.circle {
+  border-radius: 50%;
+}
 
 
 .contact-wr {
