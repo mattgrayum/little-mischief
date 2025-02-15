@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div id="hero">
+<div id="home-hero">
     <video
             loop
             muted
@@ -16,10 +16,12 @@
             playsinline
             preload="auto"
     >
-        <source src="images/hero-video.mp4" type="video/mp4">
+        <source src="videos/hero-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <site-header-icons></site-header-icons>
+    <div id="header-icons">
+        <site-header-icons></site-header-icons>
+    </div>
     <div class="sr-only">
         <h1>Little Mischief</h1>
     </div>
@@ -73,7 +75,7 @@
 </section>
 <section class="spotify-wr">
     <div class="spotify-content">
-        <h2 id="spotify">Now Streaming on Spotify</h2>
+        <h2 id="spotify">Listen on Spotify</h2>
         <iframe
                 style="border-radius:12px"
                 src="https://open.spotify.com/embed/album/0s1fOfnd3OfB1ON67893cy?utm_source=generator&theme=0"
@@ -87,7 +89,7 @@
     </div>
 </section>
 <section class="video-wr">
-    <div class="video-content">
+    <div class="video-content single-video">
         <h2 id="new-video">New Video!</h2>
         <iframe
                 width="1250"

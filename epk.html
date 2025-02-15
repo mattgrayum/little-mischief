@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Mischief - Electronic Press Kit</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a0933;
+            --secondary-color: #ffffff;
+            --accent-color: #ff6b00;
+            --gradient-1: #ff6b00;
+            --gradient-2: #9d00ff;
+            --gradient-3: #5900ff;
+            --purple-glow: rgba(157, 0, 255, 0.3);
+            --orange-glow: rgba(255, 107, 0, 0.3);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-color);
+            background-color: var(--primary-color);
+            overflow-x: hidden;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+            animation: pulse 20s infinite ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .header-wr {
+            background-color: #070010;
+            background-image: linear-gradient(#070010 0%, #070010 60%, #110032 85%, #1a0933 100%);
+            padding-top: 1rem;
+            height: 100vh;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 150px;
+                background: linear-gradient(
+                    to bottom,
+                    transparent,
+                    #1a0933
+                );
+                pointer-events: none;
+            }
+
+            &.home {
+                @media (orientation: landscape) {
+                    display: none;
+                }
+
+                @media (min-width: 1025px) and (max-width: 1280px) {
+                    display: none;
+                }
+            }
+        }
+
+        .header-content {
+            text-align: center;
+            color: #fafafa;
+
+
+
+
+            h1 {
+                font-family: 'Special Elite', cursive;
+                font-size: 2rem;
+
+                @media (orientation: landscape) {
+                    color: #fff;
+                    margin-top: 5rem;
+                }
+
+                @media (min-width: 1025px) {
+                    color: #fff;
+                    margin-top: 5rem;
+                    & div {
+                        font-size: 4rem;
+                    }
+                }
+
+                @media screen and (min-width: 700px) {
+                    margin-top: 3rem;
+                    font-size: 3rem;
+                }
+            }
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            img {
+                width: 100%;
+                margin-top: 3rem;
+
+                @media (orientation: landscape) {
+                    display: none;
+                }
+                @media (min-width: 1025px) and (max-width: 1280px){
+                    display: none;
+                }
+            }
+        }
+
+        #band-name {
+            display: none;
+
+            @media (orientation: landscape) {
+                display: block;
+            }
+            @media (min-width: 920px) {
+                display: block;
+            }
+        }
+
+        .home-page h1 {
+            @media screen and (min-width: 700px) {
+                margin-top: 60vh;
+            }
+        }
+
+        #epk-hero {
+            position: relative;
+            display: none;
+
+            @media (orientation: landscape) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100%;
+                background: #070010;
+            }
+            @media (min-width: 1025px) and (max-width: 1280px) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100%;
+                background: #070010;
+            }
+        }
+
+        #epk-hero::after {
+            width: 100%;
+            height: 100vh;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        #epk-hero .texture {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('images/texture.png');
+            z-index: 15;
+        }
+
+        #epk-hero video {
+            display: none;
+
+            @media (orientation: landscape) {
+                display: block;
+                width: 100%;
+                height: 100vh;
+                position: absolute;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+            }
+            @media (min-width: 1025px) and (max-width: 1280px) {
+                display: block;
+                width: 100%;
+                height: 100vh;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 5;
+                object-fit: cover;
+            }
+        }
+
+        #epk-hero .logo-caption {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 20;
+            height: 100vh;
+        }
+
+        .logo-caption img {
+            width: 70vw;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 8rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+            margin: 1rem auto;
+        }
+
+        .bio {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--purple-glow), var(--orange-glow));
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .social-links a {
+            color: var(--secondary-color);
+            font-size: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #music .media-grid {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--purple-glow);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: translateY(-10px);
+        }
+
+        .video-container iframe{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 1;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 62, 62, 0.2), rgba(46, 204, 113, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover::after {
+            opacity: 1;
+        }
+
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, var(--purple-glow), var(--orange-glow));
+            padding: 6rem 2rem;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            word-break: break-word
+            max-width: 100%;
+            line-height: 1.4;
+        }
+
+        .contact-info a:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 62, 62, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .media-grid, #music .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #insta {
+                max-height: 260px;
+                overflow: hidden;
+            }
+
+            .social-links {
+                gap: 2rem;
+            }
+
+            .photo-gallery {
+                padding: 0;
+            }
+
+            .contact-info a {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--gradient-1), var(--gradient-2));
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('scroll-reveal');
+                observer.observe(section);
+            });
+        });
+    </script>
+</head>
+<body>
+<!--<header>-->
+<!--    <img src="/api/placeholder/1920/1080" alt="Little Mischief Band" class="hero-image">-->
+<!--    <div class="hero-content">-->
+<!--        <h1>Little Mischief</h1>-->
+<!--        <p style="font-size: 1.5rem; text-transform: uppercase; letter-spacing: 4px;">Soul-Stirring Funk-Fueled Powerhouse</p>-->
+<!--    </div>-->
+<!--</header>-->
+<div id="epk-hero">
+    <div class="texture"></div>
+    <video
+            loop
+            muted
+            autoplay
+            playsinline
+            preload="auto"
+    >
+        <source src="videos/foxwineco.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="logo-caption">
+        <img src="images/logos/white-transparent-cropped.png" alt="Little Mischief logo" />
+    </div>
+    <div class="sr-only">
+        <h1>Little Mischief</h1>
+    </div>
+</div>
+<div class="header-wr home">
+    <div class="header-content home-page">
+        <h1>
+            <span id="band-name">L<span id="upsidedown-i">i</span>ttle Mischief</span>
+            <span class="circle-img-wr">
+               <img src="images/LittleMischief-Circle.JPEG" alt="Michael Baker looking awesome"/>
+           </span>
+        </h1>
+    </div>
+</div>
+
+<div class="container">
+    <section id="bio">
+        <h2 class="section-title">The Story</h2>
+        <div class="bio">
+            <p>
+                Get ready for Little Mischief—a soul-stirring, funk-fueled powerhouse from sunny California!
+                This explosive fusion of rock, soul, funk, and Americana is fronted by the dynamic Michael Baker Jr.
+                (Vocals/Guitar/Songwriter) and backed by the magnetic Zach Frese (Bass/Vocals), the pulsating
+                Ben Parker (Drums), the rhythmic Matthew Grayum (Percussion), and the groove-machine Sam Kulchin
+                (Guitar and Vocals) bringing the heat.
+            </p>
+            <br>
+            <p>
+                Little Mischief isn't just about music; they're a sonic explosion, igniting dance floors and
+                transforming every beat into a legendary experience. Their chemistry, honed over countless nights
+                of campfire jams and smoky studio sessions, delivers a sound that's as infectious as it is soulful.
+                Expect to jump, dance, and even headbang as they weave their diverse setlist into an unforgettable
+                experience.
+            </p>
+            <br>
+            <p>
+                When Little Mischief takes the stage, their music isn't just something you hear — it's something
+                you live and breathe. Dive into the groove and experience a Little Mischief.
+            </p>
+        </div>
+    </section>
+
+    <section id="social">
+        <h2 class="section-title">Connect</h2>
+        <div class="social-links">
+            <a href="https://spotify.com/littlemischief" target="_blank"><i class="fab fa-spotify"></i></a>
+            <a href="https://instagram.com/littlemischief" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/littlemischief" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+    </section>
+
+    <section id="music">
+        <h2 class="section-title">Music</h2>
+        <div class="media-grid">
+            <!-- Spotify Embed -->
+            <div id="spotify">
+                <iframe
+                        style="border-radius:12px; margin: auto"
+                        src="https://open.spotify.com/embed/album/0s1fOfnd3OfB1ON67893cy?utm_source=generator&theme=0"
+                        width="100%"
+                        height="100%"
+                        frameBorder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                ></iframe>
+        </div>
+            <!-- Instagram Embed -->
+            <div id="insta">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/littlemischiefmusic/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/littlemischiefmusic/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this profile on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/littlemischiefmusic/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank">Little Mischief</a> (@<a href="https://www.instagram.com/littlemischiefmusic/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank">littlemischiefmusic</a>) • Instagram photos and videos</p></div></blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2 class="section-title">Videos</h2>
+        <div class="media-grid">
+            <div class="video-container">
+                <iframe
+                        width="1250"
+                        height="703"
+                        src="https://www.youtube.com/embed/g88523S3Rhk" title="When My Train Pulls In - Covered by Little Mischief"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                ></iframe>            </div>
+            <div class="video-container">
+                <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/XdPNaOKQMkc?si=Nhqd_qN2FCSft791"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                ></iframe>            </div>
+            <div class="video-container">
+                <iframe
+                        src="https://www.youtube.com/embed/nTVgPoLn150?"
+                        title="YouTube Shorts video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-container">
+                <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/xeCiyqa-g08?si=a8ZZAG7NRoUTnhh-"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="photos">
+        <h2 class="section-title">Gallery</h2>
+        <div class="photo-gallery">
+            <div class="photo-item"><img src="images/epk-final/ClubCar.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Sam_headshot-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/PorchFest_Oct_2024-min.JPG" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/LM_SB_Oct_2024-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Ben_headshot-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Zach_headshot4-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Michael_headshot-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Little%20Mischief%208-16-24-272-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Matt_TorchClub_2023-12-28-min.jpg" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/BlueMan-min.JPG" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/LM_SB_June_2024-min.JPG" alt=""></div>
+            <div class="photo-item"><img src="images/epk-final/Sam_FoxWine_2024.10.27-min.jpg" alt=""></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h2 class="section-title">Book Us</h2>
+            <div class="contact-info">
+                <a href="mailto:littlemischiefmusic@gmail.com">littlemischiefmusic<wbr>@gmail.com</a>
+                <a href="tel:9166228501">(916) 622-8501</a>
+            </div>
+        </div>
+    </section>
+</div>
+<script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
