@@ -29,8 +29,10 @@ function sortByDate(shows) {
 }
 
 async function fetchShows() {
+    console.log('fetching shows');
     const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTceLTuUpr6ExiA6Bfu0g91LuYprw-qCyzCLReU-BCIy3gtj5SlLk49vXCmUQwbVsEm87V6TZzyVtEg/pub?output=csv');
     const showsCsv = await response.text();
+    console.log('showsCsv', showsCsv);
     const [keys, ...data] = showsCsv.trim().split('\n').map(row => row.split(','));
 
     const showObjects = data.map(row => {
@@ -41,6 +43,7 @@ async function fetchShows() {
 
         return obj;
     })
+    console.log('showObjects', showObjects);
 
 
     return sortByDate(showObjects);
@@ -57,6 +60,7 @@ async function renderShows() {
                     `)
     const showsHtml = shows.map(show => {
         const time = (show.startTime && show.endTime) ? `${show.startTime} to ${show.endTime}` : 'Time TBD';
+
         return (`
                     <div class="show-date">
                         <p class="date">
@@ -64,6 +68,18 @@ async function renderShows() {
                             <span>${time}</span>
                         </p>
                         <a href="${show.venueUrl}">${show.venueName}</a>
+                        
+                        ${show.additionalInfo === 'with Park Street Riot and Easy Sleeper' 
+                            // Special case for Torch Club show on 9/5/2025 so we can include links to the other bands
+                            ? (`<p style="margin: 0; padding: 0 0 0 2rem">
+                                    <span>~ with </span>
+                                    <a href="https://open.spotify.com/artist/0IKYbYMl6HzP1wQG4T8aUT" target="_blank" rel="noreferrer">Park Street Riot</a>
+                                    <span> and </span>
+                                    <a href="https://open.spotify.com/artist/4JlKf796rnWKhzbN1le14u" target="_blank" rel="noreferrer">Easy Sleeper</a>
+                                </p>
+                            `) 
+                            : (`<p style="${show.additionalInfo ? 'margin: 0; padding: 0 0 0 2rem' : 'display: none'}">~ ${show.additionalInfo}</p>`)}
+                        
                         <p>${show.address}<br/>${show.city}, ${show.state} ${show.zip}</p>
                         <a href="${show.mapsUrl}">
                             <span class="material-icons map-link">pin_drop</span>
